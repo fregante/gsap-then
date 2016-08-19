@@ -2,7 +2,7 @@
 
 > Make every GSAP Tween a promise
 
-[![gzipped size](https://badges.herokuapp.com/size/github/bfred-it/gsap-then/master/gsap-then.js?gzip=true&label=gzipped%20size)](#readme)
+[![gzipped size](https://badges.herokuapp.com/size/github/bfred-it/gsap-then/master/dist/gsap-then.browser.js?gzip=true&label=gzipped%20size)](#readme)
 [![Travis build status](https://api.travis-ci.org/bfred-it/gsap-then.svg?branch=master)](https://travis-ci.org/bfred-it/gsap-then)
 [![gzipped size](https://img.shields.io/npm/v/gsap-then.svg)](https://www.npmjs.com/package/gsap-then) 
 
@@ -19,21 +19,14 @@ import 'gsap';
 import 'gsap-then';
 ```
 
-Or include the file `gsap-then.js` after loading Greensock.
+Or include the file `dist/gsap-then.browser.js` after loading Greensock.
 
 ## Usage
 
 ```js
 TweenLite.to('.title', 1, {opacity: 0}).then(function () {
 	console.log('Done animating title');
-});
-
-Promise.all([
-	TweenLite.to('.title', 1, {opacity: 0}),
-	loadImage('img.jpg') // http://npm.im/image-promise
-]).then(function () {
-	console.log('Animation done and image loaded');
-});
+})
 ```
 
 ## Notes

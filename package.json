@@ -17,16 +17,23 @@
     "thenable"
   ],
   "files": [
-    "gsap-then.js"
+    "dist/gsap-then.common-js.js",
+    "dist/gsap-then.es-modules.js"
   ],
-  "main": "gsap-then.js",
+  "main": "dist/gsap-then.common-js.js",
+  "jsnext:main": "dist/gsap-then.es-modules.js",
   "scripts": {
-    "build": "xo --fix",
-    "watch": "onchange 'index.js' --initial -- npm run build -- --continue-on-error",
+    "build:js": "bfred-npm-bundler gsap-then makeGsapThenable",
+    "build": "npm-run-all --silent jsfix build:*",
+    "jsfix": "xo --fix",
+    "watch:build": "onchange 'index.js' --initial -- npm run build -- --continue-on-error",
+    "watch": "npm-run-all --parallel --silent watch:*",
     "prepublish": "npm run build",
-    "test": "xo"
+    "test": "xo; npm run build"
   },
   "devDependencies": {
+    "bfred-npm-bundler": "^7.1.2",
+    "npm-run-all": "^2.3.0",
     "onchange": "^2.5.0",
     "xo": "^0.16.0"
   },
