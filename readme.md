@@ -76,7 +76,10 @@ These limitations are there because GSAP only supports one callback at a time (i
 
 ## Dependencies
 
-No dependencies except GSAP itself, but you need to load it separately. It works even if you only load TweenLite
+No direct dependencies, but you'll also need to load
+
+* GSAP, even just TweenLite
+* `window.Promise` is available in Edge 12+ and all the [other browsers.](http://caniuse.com/#feat=promises)
 
 ## Related
 
