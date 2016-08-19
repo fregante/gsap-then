@@ -1,2 +1,0 @@
-/*! npm.im/gsap-then */
-!function(){"use strict";window.com.greensock.core.Animation.prototype.then=function(n){var e=this;return new Promise(function(n){e.add?e.add(n):e.eventCallback("onComplete",n)}).then(n)}}();
