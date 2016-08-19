@@ -78,6 +78,10 @@ These limitations are there because GSAP only supports one callback at a time (i
 
 No dependencies except GSAP itself, but you need to load it separately. It works even if you only load TweenLite
 
+## Related
+
+* [tweenlite-stagger](https://github.com/bfred-it/tweenlite-stagger): Avoid TweenMax. Use TweenLite.stagger with the help of TimelineLite
+
 ## License
 
 MIT © [Federico Brigante](http://twitter.com/bfred_it)
