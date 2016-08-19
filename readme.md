@@ -29,6 +29,35 @@ TweenLite.to('.title', 1, {opacity: 0}).then(function () {
 })
 ```
 
+```js
+Promise.all([
+	TweenLite.to('.title', 1, {opacity: 0}),
+	loadImage('img.jpg') // http://npm.im/image-promise
+]).then(function () {
+	console.log('Animation done and image loaded');
+});
+```
+
+```js
+var tl = new TimelineMax();
+tl.to('.title', 1, {opacity: 0});
+tl.then(function () {
+	console.log('Timeline done');
+})
+```
+
+```js
+var tl = new TimelineMax();
+tl.to('.title', 1, {opacity: 0});
+tl.then(function () {
+	console.log('Title animated');
+})
+tl.to('.body', 1, {opacity: 0});
+tl.then(function () {
+	console.log('Timeline done');
+})
+```
+
 ## Notes
 
 When you call `.then()` a new Promise is generated. 
@@ -42,6 +71,8 @@ This has two limitations:
 - Timelines: `.then` doesn't mark the official completion of the timeline unless it's the last method you call.
 
 These limitations are there because GSAP only supports one callback at a time (i.e. there can't be more than on `onComplete`).
+
+**Also:** because these are promises, they are only resolved once, not every time the timeline is completed.
 
 ## Dependencies
 
