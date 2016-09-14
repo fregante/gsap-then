@@ -39,51 +39,31 @@ Promise.all([
 ```
 
 ```js
-var tl = new TimelineMax();
+var tl = new TimelineLite();
+tl.then(function () {
+	console.log('Timeline completed');
+})
 tl.to('.title', 1, {opacity: 0});
-tl.then(function () {
-	console.log('Timeline done');
-})
-```
-
-```js
-var tl = new TimelineMax();
-tl.to('.title', 1, {opacity: 0});
-tl.then(function () {
-	console.log('Title animated');
-})
-tl.to('.body', 1, {opacity: 0});
-tl.then(function () {
-	console.log('Timeline done');
-})
 ```
 
 ## Notes
 
-When you call `.then()` a new Promise is generated. 
+When you call `.then()` a new Promise is generated and it's resolved once GSAP's `onComplete` is reached.
 
-- Simple tweens: the promise it's resolved with the callback `onComplete`
-- Timelines: it's added to the timeline with `.add`
+If the tween already has an `onComplete` callback it will be replaced by the Promise resolver but it will still work. If you apply a new `onComplete` callback the promise will be overridden.
 
-This has two limitations:
-
-- Simple tweens: `.then` can only be called once and will override any previous `onComplete` callback.
-- Timelines: `.then` doesn't mark the official completion of the timeline unless it's the last method you call.
-
-These limitations are there because GSAP only supports one callback at a time (i.e. there can't be more than on `onComplete`).
-
-**Also:** because these are promises, they are only resolved once, not every time the timeline is completed.
+**Note:** because these are promises, they are only resolved once, not every time the timeline is completed. If you want it to be resolved every time, then you don't need a promise, just use `onComplete`.
 
 ## Dependencies
 
-No direct dependencies, but you'll also need to load
+No direct dependencies, but you'll also need to load before `gsap-then`:
 
 * GSAP, even just TweenLite
 * `window.Promise` is available in Edge 12+ and all the [other browsers.](http://caniuse.com/#feat=promises)
 
 ## Related
 
-* [tweenlite-stagger](https://github.com/bfred-it/tweenlite-stagger): Avoid TweenMax. Use TweenLite.stagger with the help of TimelineLite
+* [tweenlite-stagger](https://github.com/bfred-it/tweenlite-stagger): Avoid TweenMax. Use `TweenLite.stagger` with the help of TimelineLite
 
 ## License
 
