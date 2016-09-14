@@ -21,6 +21,7 @@
     "dist/gsap-then.es-modules.js"
   ],
   "main": "dist/gsap-then.common-js.js",
+  "module": "dist/gsap-then.es-modules.js",
   "jsnext:main": "dist/gsap-then.es-modules.js",
   "scripts": {
     "build:js": "bfred-npm-bundler gsap-then makeGsapThenable",
