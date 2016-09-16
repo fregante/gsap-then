@@ -19,7 +19,7 @@ import 'gsap';
 import 'gsap-then';
 ```
 
-Or include the file `dist/gsap-then.browser.js` after loading Greensock.
+Or include the file `dist/gsap-then.browser.js` after loading GreenSock.
 
 ## Usage
 
@@ -50,7 +50,7 @@ tl.to('.title', 1, {opacity: 0});
 
 When you call `.then()` a new Promise is generated and it's resolved once GSAP's `onComplete` is reached.
 
-If the tween already has an `onComplete` callback it will be replaced by the Promise resolver but it will still work. If you apply a new `onComplete` callback the promise will be overridden.
+If the tween already has an `onComplete` callback it will be replaced by the Promise resolver but it will still work. But if you apply a new `onComplete` callback after calling `.then()` the  promise will be overridden.
 
 **Note:** because these are promises, they are only resolved once, not every time the timeline is completed. If you want it to be resolved every time, then you don't need a promise, just use `onComplete`.
 
@@ -63,8 +63,11 @@ No direct dependencies, but you'll also need to load before `gsap-then`:
 
 ## Related
 
+* [GSAP](https://github.com/greensock/GreenSock-JS): GreenSock Animation Platform, duh!
 * [tweenlite-stagger](https://github.com/bfred-it/tweenlite-stagger): Avoid TweenMax. Use `TweenLite.stagger` with the help of TimelineLite
 
 ## License
 
 MIT © [Federico Brigante](http://twitter.com/bfred_it)
+
+gsap-then is NOT affiliated with, endorsed, or sponsored by GreenSock, Inc.
