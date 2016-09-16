@@ -40,8 +40,8 @@ Promise.all([
 
 ```js
 var tl = new TimelineLite();
-tl.then(function () {
-	console.log('Timeline completed');
+tl.then(function (timeline) {
+	console.log('Timeline completed:', timeline);
 })
 tl.to('.title', 1, {opacity: 0});
 ```
