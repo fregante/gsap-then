@@ -1,2 +1,2 @@
 /*! npm.im/gsap-then */
-!function(){"use strict";window.com.greensock.core.Animation.prototype.then=function(n){var e=this;return new Promise(function(n){var t=e.eventCallback("onComplete");e.eventCallback("onComplete",function(){t&&t(),n()})}).then(n)}}();
+!function(){"use strict";window.com.greensock.core.Animation.prototype.then=function(n){var t=this;return new Promise(function(n){var e=t.eventCallback("onComplete");t.eventCallback("onComplete",function(){e&&e.apply(this,arguments),n(this)})}).then(n)}}();
