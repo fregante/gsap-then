@@ -48,17 +48,15 @@ tl.to('.title', 1, {opacity: 0});
 
 ## Notes
 
-When you call `.then()` a new Promise is generated and it's resolved once GSAP's `onComplete` is reached.
-
-If the tween already has an `onComplete` callback it will be replaced by the Promise resolver but it will still work. But if you apply a new `onComplete` callback after calling `.then()` the  promise will be overridden.
-
-**Note:** because these are promises, they are only resolved once, not every time the timeline is completed. If you want it to be resolved every time, then you don't need a promise, just use `onComplete`.
+* Calling `.then()` generates a new Promise.
+* The generated Promise is resolved the next time GSAP calls `onComplete`
+* The Promise is only resolved once, so if you restart the animation, nothing new will happen—unless you generate a new Promise.
+* If the tween already has an `onComplete` callback, it will be replaced by the Promise, but it will still work.
+* Don't remove or set a new `onComplete` callback **after** calling `.then()` because this will override the Promise (i.e. it will never be resolved)
 
 ## Dependencies
 
-No direct dependencies, but you'll also need to load before `gsap-then`:
-
-* GSAP, even just TweenLite
+*  Load `gsap` or simply `TweenLite` before `gsap-then`.
 * `window.Promise` is available in Edge 12+ and all the [other browsers.](http://caniuse.com/#feat=promises)
 
 ## Related
