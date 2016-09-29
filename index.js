@@ -5,7 +5,7 @@ window.com.greensock.core.Animation.prototype.then = function (onFullfilled) {
 			if (existing) {
 				existing.apply(this, arguments);
 			}
-			resolve(this);
+			resolve();
 		});
-	}).then(onFullfilled);
+	}).then(() => onFullfilled(this));
 };
