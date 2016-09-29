@@ -1,6 +1,6 @@
 {
   "name": "gsap-then",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Make every GSAP Tween a promise. tl.then(doSomething)",
   "license": "MIT",
   "repository": "bfred-it/gsap-then",
