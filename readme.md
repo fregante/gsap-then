@@ -62,7 +62,6 @@ tl.to('.title', 1, {opacity: 0});
 ## Related
 
 * [GSAP](https://github.com/greensock/GreenSock-JS): GreenSock Animation Platform, duh!
-* [tweenlite-stagger](https://github.com/bfred-it/tweenlite-stagger): Avoid TweenMax. Use `TweenLite.stagger` with the help of TimelineLite
 
 ## License
 
