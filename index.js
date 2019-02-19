@@ -7,5 +7,9 @@ window.com.greensock.core.Animation.prototype.then = function (onFullfilled) {
 			}
 			resolve();
 		});
-	}).then(() => onFullfilled(this));
+	}).then(() => {
+		if (typeof onFullfilled === 'function') {
+			onFullfilled(this);
+		}
+	});
 };
