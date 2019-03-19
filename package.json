@@ -39,13 +39,10 @@
     "xo": "^0.16.0"
   },
   "xo": {
-    "esnext": true,
+    "esnext": false,
     "env": [
       "browser"
-    ],
-    "rules": {
-      "prefer-spread": 0
-    }
+    ]
   },
   "dependencies": {}
 }
