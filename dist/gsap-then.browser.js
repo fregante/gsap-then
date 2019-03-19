@@ -1,2 +1,2 @@
 /*! npm.im/gsap-then */
-!function(){"use strict";("undefined"==typeof window?global:window).com.greensock.core.Animation.prototype.whenDone=function(){var e=this;if(arguments.length>0)throw new TypeError("No arguments should be passed to `.whenDone()`. The method returns a promise. Use `tl.whenDone().then(fn)` or `await tl.whenDone()`");return new Promise(function(n){var o=e.eventCallback("onComplete");e.eventCallback("onComplete",function(){o&&o.apply(this,arguments),n(this)})})}}();
+!function(){"use strict";("undefined"==typeof window?global:window).com.greensock.core.Animation.prototype.then=function(n){var e=this;return new Promise(function(o){var t=e.eventCallback("onComplete");e.eventCallback("onComplete",function(){t&&t.apply(this,arguments),n(),o()})})}}();

@@ -34,7 +34,7 @@ require('./index.js');
 	test(Tween.name + ': base setting', t => {
 		const tl = new Tween();
 		t.is(typeof tl.eventCallback('onComplete'), 'undefined');
-		tl.whenDone().then(() => {});
+		tl.then(() => {});
 		t.is(typeof tl.eventCallback('onComplete'), 'function');
 	});
 
@@ -44,9 +44,9 @@ require('./index.js');
 		tl.progress(1, false); // Mark tween as "done"
 	});
 
-	test.cb(Tween.name + ': calling the callback (whenDone)', t => {
+	test.cb(Tween.name + ': calling the callback (then)', t => {
 		const tl = new Tween();
-		tl.whenDone().then(() => t.end());
+		tl.then(() => t.end());
 		tl.progress(1, false); // Mark tween as "done"
 	});
 
@@ -54,14 +54,14 @@ require('./index.js');
 		const tl = new Tween();
 		setTimeout(() => tl.progress(1, false)); // Mark tween as "done"
 
-		t.is(await tl.whenDone(), tl);
+		t.is(await tl, undefined);
 	});
 
-	test.cb(Tween.name + ': calling the callback (gsap native + whenDone)', t => {
+	test.cb(Tween.name + ': calling the callback (gsap native + then)', t => {
 		t.plan(2);
 		const tl = new Tween();
 		tl.eventCallback('onComplete', () => t.pass());
-		tl.whenDone().then(() => {
+		tl.then(() => {
 			t.pass();
 			t.end();
 		});
@@ -74,8 +74,9 @@ require('./index.js');
 		const tl = new Tween();
 		setTimeout(() => tl.progress(1, false)); // Mark tween as "done"
 
-		tl.eventCallback('onComplete', () => t.pass());
-		await tl.whenDone();
-		t.pass();
+		let callCount = 0;
+		tl.eventCallback('onComplete', () => t.is(++callCount, 1));
+		await tl;
+		t.is(++callCount, 2);
 	});
 });

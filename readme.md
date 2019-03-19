@@ -8,7 +8,7 @@
 
 Once loaded, every GSAP tween (TweenLite, TimelineLite, TweenMax, TimelineMax) will automatically be a promise. See the [usage examples](#usage) to see what this enables.
 
-Since v3.0.0 it supports `await` and now you have to call `.whenDone()` to generate a Promise. If you have suggestions for a better method name, please suggest it.
+Since v3.0.0 it supports `await`!
 
 ## Install
 
@@ -26,17 +26,14 @@ Or include the file `dist/gsap-then.browser.js` after loading GreenSock.
 ## Usage
 
 ```js
-TweenLite
-.to('.title', 1, {opacity: 0})
-.whenDone() // Don't forget to call this!
-.then(function () {
+TweenLite.to('.title', 1, {opacity: 0}).then(function () {
 	console.log('Done animating title');
 })
 ```
 
 ```js
 Promise.all([
-	TweenLite.to('.title', 1, {opacity: 0}).whenDone(),
+	TweenLite.to('.title', 1, {opacity: 0}),
 	loadImage('img.jpg') // http://npm.im/image-promise
 ]).then(function () {
 	console.log('Animation done and image loaded');
@@ -45,25 +42,25 @@ Promise.all([
 
 ```js
 var tl = new TimelineLite();
-tl.whenDone().then(function (timeline) {
-	console.log('Timeline completed:', timeline);
+tl.then(function () {
+	console.log('Timeline completed:', tl);
 })
 tl.to('.title', 1, {opacity: 0});
 ```
 
 ```js
-await TweenLite.to('.title', 1, {opacity: 0}).whenDone() // Don't forget to call this!
+await TweenLite.to('.title', 1, {opacity: 0});
 
 console.log('Done animating title');
 ```
 
 ## Notes
 
-* Calling `.whenDone()` generates a new Promise.
+* Calling `.then()` generates a new Promise.
 * The generated Promise is resolved the next time GSAP calls `onComplete`
 * The Promise is only resolved once, so if you restart the animation, nothing new will happen—unless you generate a new Promise.
 * If the tween already has an `onComplete` callback, it will be replaced by the Promise, but it will still work.
-* Don't remove or set a new `onComplete` callback **after** calling `.whenDone()` because this will override the Promise (i.e. it will never be resolved)
+* Don't remove or set a new `onComplete` callback **after** calling `.then()` because this will override the Promise (i.e. it will never be resolved)
 
 ## Dependencies
 
