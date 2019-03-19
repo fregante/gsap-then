@@ -1,3 +1,4 @@
+'use strict';
 (typeof window === 'undefined' ? global : window)
 	.com
 	.greensock
