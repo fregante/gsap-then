@@ -1,9 +1,9 @@
-# <img src="https://rawgit.com/bfred-it/gsap-then/master/logo.svg" width="45" align="left"> gsap-then
+# <img src="https://rawgit.com/fregante/gsap-then/master/logo.svg" width="45" align="left"> gsap-then
 
 > Make every GSAP Tween a promise
 
-[![gzipped size](https://badges.herokuapp.com/size/github/bfred-it/gsap-then/master/dist/gsap-then.browser.js?gzip=true&label=gzipped%20size)](#readme)
-[![Travis build](https://api.travis-ci.org/bfred-it/gsap-then.svg?branch=master)](https://travis-ci.org/bfred-it/gsap-then)
+[![gzipped size](https://badges.herokuapp.com/size/github/fregante/gsap-then/master/dist/gsap-then.browser.js?gzip=true&label=gzipped%20size)](#readme)
+[![Travis build](https://api.travis-ci.org/fregante/gsap-then.svg?branch=master)](https://travis-ci.org/fregante/gsap-then)
 [![npm link](https://img.shields.io/npm/v/gsap-then.svg)](https://www.npmjs.com/package/gsap-then)
 
 Once loaded, every GSAP tween (TweenLite, TimelineLite, TweenMax, TimelineMax) will automatically be a promise. See the [usage examples](#usage) to see what this enables.
@@ -34,7 +34,7 @@ TweenLite.to('.title', 1, {opacity: 0}).then(function () {
 ```js
 Promise.all([
 	TweenLite.to('.title', 1, {opacity: 0}),
-	loadImage('img.jpg') // http://npm.im/image-promise
+	loadImage('img.jpg') // https://npm.im/image-promise
 ]).then(function () {
 	console.log('Animation done and image loaded');
 });
@@ -65,7 +65,7 @@ console.log('Done animating title');
 ## Dependencies
 
 *  Load `gsap` or simply `TweenLite` before `gsap-then`.
-* `window.Promise` is available in Edge 12+ and all the [other browsers.](http://caniuse.com/#feat=promises)
+* `window.Promise` is available in Edge 12+ and all the [other browsers.](https://caniuse.com/#feat=promises)
 
 ## Related
 
@@ -73,6 +73,6 @@ console.log('Done animating title');
 
 ## License
 
-MIT © [Federico Brigante](http://twitter.com/bfred_it)
+MIT © [Federico Brigante](https://bfred.it)
 
 gsap-then is NOT affiliated with, endorsed, or sponsored by GreenSock, Inc.

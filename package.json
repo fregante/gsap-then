@@ -2,20 +2,20 @@
   "name": "gsap-then",
   "version": "3.0.0",
   "description": "Make every GSAP Tween a promise. tl.then(doSomething)",
-  "license": "MIT",
-  "repository": "bfred-it/gsap-then",
-  "author": "Federico Brigante <github@bfred.it> (bfred.it)",
   "keywords": [
-    "gsap",
     "greensock",
-    "tweenlite",
-    "tweenmax",
-    "timelinelite",
-    "timelinemax",
+    "gsap",
     "promise",
     "then",
-    "thenable"
+    "thenable",
+    "timelinelite",
+    "timelinemax",
+    "tweenlite",
+    "tweenmax"
   ],
+  "repository": "fregante/gsap-then",
+  "license": "MIT",
+  "author": "Federico Brigante <opensource@bfred.it> (bfred.it)",
   "files": [
     "dist/gsap-then.common-js.js",
     "dist/gsap-then.es-modules.js"
@@ -24,14 +24,21 @@
   "module": "dist/gsap-then.es-modules.js",
   "jsnext:main": "dist/gsap-then.es-modules.js",
   "scripts": {
-    "build:js": "bfred-npm-bundler gsap-then makeGsapThenable",
     "build": "npm-run-all --silent jsfix build:*",
+    "build:js": "bfred-npm-bundler gsap-then makeGsapThenable",
     "jsfix": "xo --fix",
-    "watch:build": "onchange 'index.js' --initial -- npm run build -- --continue-on-error",
-    "watch": "npm-run-all --parallel --silent watch:*",
     "prepublish": "npm run build",
-    "test": "xo && ava --serial && npm run build"
+    "test": "xo && ava --serial && npm run build",
+    "watch": "npm-run-all --parallel --silent watch:*",
+    "watch:build": "onchange 'index.js' --initial -- npm run build -- --continue-on-error"
   },
+  "xo": {
+    "env": [
+      "browser"
+    ],
+    "esnext": false
+  },
+  "dependencies": {},
   "devDependencies": {
     "ava": "^1.3.1",
     "bfred-npm-bundler": "^7.1.2",
@@ -39,12 +46,5 @@
     "npm-run-all": "^2.3.0",
     "onchange": "^2.5.0",
     "xo": "^0.16.0"
-  },
-  "xo": {
-    "esnext": false,
-    "env": [
-      "browser"
-    ]
-  },
-  "dependencies": {}
+  }
 }
