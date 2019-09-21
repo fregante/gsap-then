@@ -1,4 +1,4 @@
-# <img src="https://rawgit.com/fregante/gsap-then/master/logo.svg" width="45" align="left"> gsap-then
+# <img src="logo.svg" width="45" align="left"> gsap-then
 
 > Make every GSAP Tween a promise
 
