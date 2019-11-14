@@ -6,9 +6,9 @@
 [![Travis build](https://api.travis-ci.org/fregante/gsap-then.svg?branch=master)](https://travis-ci.org/fregante/gsap-then)
 [![npm link](https://img.shields.io/npm/v/gsap-then.svg)](https://www.npmjs.com/package/gsap-then)
 
-Once loaded, every GSAP tween (TweenLite, TimelineLite, TweenMax, TimelineMax) will automatically be a promise. See the [usage examples](#usage) to see what this enables.
+**Good news! GSAP 3 [supports promises](https://greensock.com/docs/v3/GSAP/Tween/then()) natively!** This module is only necessary for GSAP v1 and v2.
 
-Since v3.0.0 it supports `await`!
+Once loaded, every GSAP tween (TweenLite, TimelineLite, TweenMax, TimelineMax) will automatically be a promise. See the [usage examples](#usage) to see what this enables.
 
 ## Install
 
